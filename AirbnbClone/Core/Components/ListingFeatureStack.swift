@@ -8,11 +8,40 @@
 import SwiftUI
 
 struct ListingFeatureStack: View {
+    
+    var image: String?
+    var systemName: String?
+    var title: String
+    var subTitle: String?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            if let systemName = systemName {
+                Image(systemName: systemName)
+                    .padding(.horizontal, 10)
+            } else if let image = image {
+                Image(image)
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+            }
+            
+            VStack(alignment: .leading) {
+                Text(title)
+                    .fontWeight(.semibold)
+                
+                if let subTitle = subTitle {
+                    Text(subTitle)
+                        .foregroundStyle(.gray)
+                        .font(.footnote)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(10)
     }
 }
 
 #Preview {
-    ListingFeatureStack()
+    ListingFeatureStack(systemName: "star", title: "Hosted by Michele", subTitle: "Superhost 5 years hosting")
 }

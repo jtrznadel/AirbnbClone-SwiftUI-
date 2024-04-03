@@ -10,7 +10,7 @@ import SwiftUI
 struct ListingImageCarouselView: View {
     
     var height: CGFloat
-    var roundedCorners: CGFloat
+    var roundedCorners: CGFloat = 10
     
     var images = [
         "image-1",
@@ -34,5 +34,5 @@ struct ListingImageCarouselView: View {
 }
 
 #Preview {
-    ListingImageCarouselView(height: 320.0, roundedCorners: 10)
+    ListingImageCarouselView(height: 320.0)
 }
